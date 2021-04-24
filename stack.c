@@ -1,5 +1,9 @@
 // Stack :  Stack is a non-linear data structure,Stack works on the principal of LIFO (Last In First Out). Stack has only one end , called "TOP OF STACK"(top) .In stack, insetion and deletion done only one end(from the top).  
-
+/*
+We can peform 2 opration on stack.
+PUSH :- insert a data into stack is called Push operation.
+POP :- Delete data from stack is called POP operation.
+*/
 
 #include<stdio.h>   //header file include
 
