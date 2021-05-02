@@ -13,6 +13,7 @@ void Create();
 void Insert();
 void Delete();
 void Display();
+void Reverse();
 
 void main() // start of main function
 {
@@ -30,7 +31,9 @@ void main() // start of main function
         
         printf("Enter 4 to Display all elements from Linked List\n");
         
-        printf("Enter 5 for Exit\n");
+        printf("Enter 5 to reverse the linked list\n");
+        
+        printf("Enter 6 for Exit\n");
         
         printf("Enter your choice: ");
         scanf("%d",&choice);
@@ -50,6 +53,9 @@ void main() // start of main function
                 Display();      // function calling
                 break;
             case 5:
+                Reverse();
+                break;
+            case 6:
                 break;
             default:
                 printf("!!WARNING!! invalid choice, please enter valid choice: ");
@@ -242,3 +248,31 @@ void Display()    // start of Display function
        }
    }
 }    // end of Delete function
+
+
+void Reverse() // start of Reverse funtion
+{
+    prev = NULL;
+    temp = start;
+    next = start;
+    
+    if(start == NULL)
+    {
+        printf("List is not created, Please create list first\n");
+    }
+    else
+    {
+        prev = NULL;
+        temp = start;
+        next = start;
+        while(temp != NULL)
+        {
+            next = next -> add;
+            temp -> add = prev;
+            prev = temp;
+            temp = next;
+        }
+        start = prev;
+    }   
+} // end of Reverse function
+
