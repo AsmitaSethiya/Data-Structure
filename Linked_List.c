@@ -14,6 +14,9 @@ void Insert();
 void Delete();
 void Display();
 void Reverse();
+void minElement();
+void maxElement();
+void ElementSearch();
 
 void main() // start of main function
 {
@@ -33,7 +36,13 @@ void main() // start of main function
         
         printf("Enter 5 to reverse the linked list\n");
         
-        printf("Enter 6 for Exit\n");
+        printf("Enter 6 to find minimum element in Linked list\n");
+    
+        printf("Enter 7 to find maximum element in linked list\n");
+    
+        printf("Enter 8 to search element in Linked List\n");
+    
+        printf("Enter 9 for Exit\n");
         
         printf("Enter your choice: ");
         scanf("%d",&choice);
@@ -56,12 +65,21 @@ void main() // start of main function
                 Reverse();
                 break;
             case 6:
+                minElement();
+                break;
+            case 7:
+                maxElement();
+                break;
+            case 8:
+                ElementSearch();
+                break;
+            case 9:
                 break;
             default:
-                printf("!!WARNING!! invalid choice, please enter valid choice: ");
+                printf("Invalid choice\n");
         }
     }
-    while(choice != 5);
+    while(choice != 9);
 }   // end of main function
 
 // function definition
@@ -275,4 +293,90 @@ void Reverse() // start of Reverse funtion
         start = prev;
     }   
 } // end of Reverse function
+
+void minElement() // start of minElement function
+{   
+    if(start == NULL)
+    {
+        printf("List is not created, first create list...........\n");
+    }
+    else
+    {
+        int min = start->data;
+        temp = start;
+        while(temp != NULL)
+        {
+            if(min > temp -> data)
+            {
+                min = temp -> data;
+            }
+            temp = temp -> add;
+        }
+         printf("Minimum element in linked list is: %d\n",min);
+    }
+} // end of minElement function
+
+
+void maxElement()  // start of maxElement function
+{
+    if(start == NULL)
+    {
+        printf("List is not created, first create list...........\n");
+    }
+    else
+    {
+        int max = start -> data;
+        temp = start;
+    
+        while(temp != NULL)
+        {
+            if(max < temp -> data)
+            {
+                max = temp -> data;
+            }
+            temp = temp -> add;
+        }
+        printf("Maximum element is linked list is: %d\n",max);
+    }
+}
+
+void ElementSearch()
+{
+    int key , f = 0;
+    
+    if(start == NULL)
+    {
+        printf("List is not created, first create list...........\n");
+    }
+    else
+    {
+        
+        printf("Enter element to search: ");
+        scanf("%d",&key);
+        
+        temp = start;
+        while(temp != NULL)
+        {
+            if(key != temp -> data)
+            {
+               temp = temp -> add;
+            }
+            else
+            {
+                f = 1;
+                break;
+            }
+        }
+    }
+    
+    if (f == 0)
+    {
+        printf("Key not found,searching is unsuccessfull\n");
+    }
+    else
+    {
+        printf("Key is found,seraching is successfull");    
+    }
+}
+
 
