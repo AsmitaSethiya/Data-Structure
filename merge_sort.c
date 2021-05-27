@@ -29,7 +29,7 @@ void main()
     
     while(j < 5)
     {
-        c[k] = a[j];
+        c[k] = b[j];
         j++;
         k++;
     }
